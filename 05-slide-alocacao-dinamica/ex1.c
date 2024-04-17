@@ -97,7 +97,6 @@ void freeEmployeeList(Employee *emp1) {
 
 void printEmployeesReversed(Employee *emp1) {
     if (emp1 == NULL) {
-        printf("Nenhum empregado foi registrado.\n");
         return;
     }
    
