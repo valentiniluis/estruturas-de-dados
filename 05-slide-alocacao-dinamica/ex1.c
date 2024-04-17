@@ -63,10 +63,16 @@ int main() {
 
     }
 
-    printf("Empregrados registrados:\n");
-    printEmployees(head);
-    printf("Empregados registrados em ordem reversa:\n");
-    printEmployeesReversed(head);
+    if (head != NULL) {
+        printf("Empregrados registrados:\n");
+        printEmployees(head);
+        printf("Empregados registrados em ordem reversa:\n");
+        printEmployeesReversed(head);
+    }
+    else {
+        printf("Nenhum empregado foi registrado.\n");
+    }
+    
     freeEmployeeList(head);
     printf("Lista encadeada foi limpada da memória.\n");
     
@@ -77,10 +83,6 @@ void printEmployees(Employee *emp1) {
 
     for (Employee *aux = emp1; aux != NULL; aux = aux->next) {
         printf("ID: %d, Nome: %s, Renda: $%.2f, Aniversario: %d/%d/%d\n", aux->id, aux->name, aux->income, aux->dbirth.day, aux->dbirth.month, aux->dbirth.year);
-    }
-
-    if (emp1 == NULL) {
-        printf("Nenhum empregado foi registrado.\n");
     }
 }
 
