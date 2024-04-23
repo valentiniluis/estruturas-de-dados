@@ -86,17 +86,6 @@ void printEmployees(Employee *emp1) {
     }
 }
 
-void freeEmployeeList(Employee *emp1) {
-    Employee *aux = emp1, *e = NULL;
-
-    for (e = emp1; e != NULL; e = aux) {
-        aux = aux->next;
-        free(e);
-    }
-
-    emp1 = NULL;
-}
-
 void printEmployeesReversed(Employee *emp1) {
     if (emp1 == NULL) {
         return;
@@ -104,4 +93,14 @@ void printEmployeesReversed(Employee *emp1) {
    
     if (emp1->next != NULL) printEmployeesReversed(emp1->next);
     printf("ID: %d, Nome: %s, Renda: $%.2f, Aniversario: %d/%d/%d\n", emp1->id, emp1->name, emp1->income, emp1->dbirth.day, emp1->dbirth.month, emp1->dbirth.year);
+}
+
+void freeEmployeeList(Employee *emp1) {
+  Employee *aux = NULL;
+  for (aux = emp1; aux != NULL;) {
+    Employee *temporario = aux;
+    aux = aux->next;
+    free(temporario);
+  }
+  emp1 = NULL;
 }
