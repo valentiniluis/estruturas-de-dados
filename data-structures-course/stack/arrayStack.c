@@ -52,7 +52,7 @@ int main() {
 
     while (option != 0) {
         printf("Stack operation:\n");
-        printf("0 - exit\n1 - push\n2 - pop\n3 - view top\n4 - view all\n-> ");
+        printf("0 - exit\n1 - push\n2 - pop\n3 - view top\n4 - view all\n5 - check if stack is empty\n-> ");
         scanf("%d", &option);
 
         switch (option) {
@@ -60,6 +60,7 @@ int main() {
             case 2: Pop(&top); break;
             case 3: Top(s, top); break;
             case 4: Print(s, top); break;
+            case 5: printf("Empty stack: %s\n", (isEmpty(top) == 1) ? "yes" : "no");
         }
         printf("\n");
     }
