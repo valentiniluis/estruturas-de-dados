@@ -22,7 +22,7 @@ int main() {
 
         switch (opcao) {
             case 1:
-                int id = receberIDValido(raiz);
+                int id = receberIDValido(raiz); // função pede um id novo repetidamente se o usuário digitar um identificador repetido. Busca de id usando BST
                 adicionarTarefa(&s, gerarTarefa(id));
                 raiz = adicionaNo(raiz, criarNo(id));
                 break;
@@ -46,6 +46,7 @@ int main() {
                 printf("id da tarefa a excluir: ");
                 scanf(" %d", &idExcluir);
                 if (excluirTarefa(&s, idExcluir)) {
+                    // ao excluir um node, por não saber corrigir os links da árvore, excluí a árvore antiga e gerei uma nova
                     printf("Tarefa excluida com sucesso.\n");
                     limparArvore(raiz);
                     raiz = NULL;
@@ -59,6 +60,7 @@ int main() {
         if (inputValido) printf("\n==========================================\n\n");
     }
 
+    // dealocação da memória dinâmica
     limparTarefas(&s);
     limparArvore(raiz);
     raiz = NULL;
